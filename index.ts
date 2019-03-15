@@ -1,4 +1,4 @@
-function domesticate(html: string): DocumentFragment {
+function doma(html: string): DocumentFragment {
 	if (html === undefined || html === null) {
 		return new DocumentFragment();
 	}
@@ -8,10 +8,10 @@ function domesticate(html: string): DocumentFragment {
 }
 
 function one(html: string): Element | null {
-	return domesticate(html).firstElementChild;
+	return doma(html).firstElementChild;
 }
 
-domesticate.one = one;
+doma.one = one;
 
-module.exports = domesticate;
-export default domesticate;
+module.exports = doma;
+export default doma;

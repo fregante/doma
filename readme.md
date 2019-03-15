@@ -1,36 +1,36 @@
-# domesticate [![Build Status](https://api.travis-ci.com/bfred-it/domesticate.svg?branch=master)](https://travis-ci.com/bfred-it/domesticate)
+# doma [![Build Status](https://api.travis-ci.com/bfred-it/doma.svg?branch=master)](https://travis-ci.com/bfred-it/doma)
 
 > Parse an HTML string into `DocumentFragment` or one `Element`, in a few bytes (in browser or jsdom)
 
 ## Install
 
 ```
-npm install domesticate
+npm install doma
 ```
 
 ## Setup
 
 ```js
-const domesticate = require('domesticate');
+const doma = require('doma');
 ```
 
 ```js
-import domesticate from 'domesticate';
+import doma from 'doma';
 ```
 
 ## Usage
 
 ```js
-domesticate('<h1>Cats</h1> and dogs');
+doma('<h1>Cats</h1> and dogs');
 //=>  DocumentFragment[<h1>, Text(' and dogs')]
 
-domesticate('the cow');
+doma('the cow');
 //=>  DocumentFragment[Text('the cow')]
 
-domesticate.one('beautiful <i>bird</i>');
+doma.one('beautiful <i>bird</i>');
 //=>  <i>
 
-domesticate.one('wild animal');
+doma.one('wild animal');
 //=>  null
 ```
 

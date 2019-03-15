@@ -1,6 +1,6 @@
 import test from 'ava';
 import {JSDOM} from 'jsdom';
-import domesticate from '.';
+import doma from '.';
 
 const {window} = new JSDOM('');
 global.document = window.document;
@@ -18,7 +18,7 @@ function getHTML(dom) {
 
 test('domesticate', t => {
 	const html = '<wolf></wolf>';
-	const dom = domesticate(html);
+	const dom = doma(html);
 	t.true(dom instanceof DocumentFragment);
 	t.is(dom.children.length, 1);
 	t.true(dom.firstChild instanceof Element);
@@ -29,7 +29,7 @@ test('domesticate', t => {
 
 test('domesticate many', t => {
 	const html = '<cat></cat><strong class="Animal"></strong>';
-	const dom = domesticate(html);
+	const dom = doma(html);
 	t.true(dom instanceof DocumentFragment);
 	t.is(dom.children.length, 2);
 	t.true(dom.firstChild instanceof Element);
@@ -42,7 +42,7 @@ test('domesticate many', t => {
 
 test('domesticate offspring', t => {
 	const html = '<cat><kitten></kitten></cat>';
-	const dom = domesticate(html);
+	const dom = doma(html);
 	t.true(dom instanceof DocumentFragment);
 	t.is(dom.children.length, 1);
 	t.true(dom.firstChild instanceof Element);
@@ -54,7 +54,7 @@ test('domesticate offspring', t => {
 
 test('domesticate fantasy', t => {
 	const html = 'unicorns and rainbows';
-	const dom = domesticate(html);
+	const dom = doma(html);
 	t.true(dom instanceof DocumentFragment);
 	t.is(dom.childNodes.length, 1);
 	t.is(dom.children.length, 0);
@@ -66,7 +66,7 @@ test('domesticate fantasy', t => {
 
 test('domesticate animal kingdom', t => {
 	const html = ' <p>Ci son due <coccodrilli> ed un <orango-tango>, due piccoli <serpenti> e un <aquila reale="">, il <gatto type="cat">, il <topo>, l’<elefante weight="heavy">: non manca più nessuno; solo non si vedono i due <leocorni aria-label="🦄">.</p>';
-	const dom = domesticate(html);
+	const dom = doma(html);
 	t.true(dom instanceof DocumentFragment);
 	t.is(dom.childNodes.length, 2);
 	t.is(dom.children.length, 1);
@@ -80,7 +80,7 @@ test('domesticate animal kingdom', t => {
 
 test('domesticate one', t => {
 	const html = '<animal></animal>';
-	const dom = domesticate.one(html);
+	const dom = doma.one(html);
 	t.true(dom instanceof Element);
 	t.is(dom.childNodes.length, 0);
 	t.is(dom.firstChild, null);
@@ -91,13 +91,13 @@ test('domesticate one', t => {
 
 test('domesticate one wish', t => {
 	const html = 'flying pigs';
-	const dom = domesticate.one(html);
+	const dom = doma.one(html);
 	t.is(dom, null);
 });
 
 test('domesticate one dirty farm', t => {
 	const html = 'go to <town></town> on wild <puns/>';
-	const dom = domesticate.one(html);
+	const dom = doma.one(html);
 	t.true(dom instanceof Element);
 	t.is(dom.childNodes.length, 0);
 	t.is(dom.firstChild, null);
