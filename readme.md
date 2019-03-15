@@ -1,4 +1,9 @@
-# doma [![Build Status](https://api.travis-ci.com/bfred-it/doma.svg?branch=master)](https://travis-ci.com/bfred-it/doma)
+# doma [![(size)][badge-gzip]](#no-link) [![(status)][badge-travis]][link-travis]
+
+  [badge-gzip]: https://img.shields.io/bundlephobia/minzip/doma.svg?label=gzipped
+  [badge-travis]: https://api.travis-ci.com/bfred-it/doma.svg?branch=master
+  [link-travis]: https://travis-ci.org/bfred-it/doma
+  [link-npm]: https://www.npmjs.com/package/doma
 
 > Parse an HTML string into `DocumentFragment` or one `Element`, in a few bytes (in browser or jsdom)
 
