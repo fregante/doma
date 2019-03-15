@@ -1,6 +1,6 @@
 import test from 'ava';
 import {JSDOM} from 'jsdom';
-import dominate from '.';
+import domesticate from '.';
 
 const {window} = new JSDOM('');
 global.document = window.document;
@@ -8,10 +8,7 @@ global.DocumentFragment = window.DocumentFragment;
 global.Text = window.Text;
 global.Element = window.Element;
 global.HTMLElement = window.HTMLElement;
-global.HTMLBaseElement = window.HTMLBaseElement;
-global.HTMLTimeElement = window.HTMLTimeElement;
 global.HTMLParagraphElement = window.HTMLParagraphElement;
-global.HTMLHeadingElement = window.HTMLHeadingElement;
 
 function getHTML(dom) {
 	const el = document.createElement('div');
@@ -19,44 +16,45 @@ function getHTML(dom) {
 	return el.innerHTML;
 }
 
-test('dominate', t => {
-	const html = '<base>';
-	const dom = dominate(html);
+test('domesticate', t => {
+	const html = '<wolf></wolf>';
+	const dom = domesticate(html);
 	t.true(dom instanceof DocumentFragment);
 	t.is(dom.children.length, 1);
-	t.true(dom.firstChild instanceof HTMLBaseElement);
+	t.true(dom.firstChild instanceof Element);
 	t.is(dom.querySelectorAll('*').length, 1);
 	t.is(getHTML(dom), html);
 	t.is(dom.textContent, '');
 });
 
-test('dominate many', t => {
-	const html = '<h1></h1><p></p>';
-	const dom = dominate(html);
+test('domesticate many', t => {
+	const html = '<cat></cat><strong class="Animal"></strong>';
+	const dom = domesticate(html);
 	t.true(dom instanceof DocumentFragment);
 	t.is(dom.children.length, 2);
-	t.true(dom.firstChild instanceof HTMLHeadingElement);
-	t.true(dom.lastChild instanceof HTMLParagraphElement);
+	t.true(dom.firstChild instanceof Element);
+	t.is(dom.firstChild.tagName, 'CAT');
+	t.true(dom.lastChild instanceof HTMLElement);
 	t.is(dom.querySelectorAll('*').length, 2);
 	t.is(getHTML(dom), html);
 	t.is(dom.textContent, '');
 });
 
-test('dominate descendants', t => {
-	const html = '<p><em></em></p>';
-	const dom = dominate(html);
+test('domesticate offspring', t => {
+	const html = '<cat><kitten></kitten></cat>';
+	const dom = domesticate(html);
 	t.true(dom instanceof DocumentFragment);
 	t.is(dom.children.length, 1);
-	t.true(dom.firstChild instanceof HTMLParagraphElement);
-	t.true(dom.querySelector('em') instanceof HTMLElement);
+	t.true(dom.firstChild instanceof Element);
+	t.true(dom.querySelector('kitten') instanceof Element);
 	t.is(dom.querySelectorAll('*').length, 2);
 	t.is(getHTML(dom), html);
 	t.is(dom.textContent, '');
 });
 
-test('dominate books', t => {
-	const html = 'rewriting (git) history';
-	const dom = dominate(html);
+test('domesticate fantasy', t => {
+	const html = 'unicorns and rainbows';
+	const dom = domesticate(html);
 	t.true(dom instanceof DocumentFragment);
 	t.is(dom.childNodes.length, 1);
 	t.is(dom.children.length, 0);
@@ -66,24 +64,24 @@ test('dominate books', t => {
 	t.is(dom.textContent, '');
 });
 
-test('dominate universe', t => {
-	const html = ' <city>Rome</city> <strong>wasn’t</strong> built in <time datetime="PTH24">a day</time>';
-	const dom = dominate(html);
+test('domesticate animal kingdom', t => {
+	const html = ' <p>Ci son due <coccodrilli> ed un <orango-tango>, due piccoli <serpenti> e un <aquila reale="">, il <gatto type="cat">, il <topo>, l’<elefante weight="heavy">: non manca più nessuno; solo non si vedono i due <leocorni aria-label="🦄">.</p>';
+	const dom = domesticate(html);
 	t.true(dom instanceof DocumentFragment);
-	t.is(dom.childNodes.length, 6);
-	t.is(dom.children.length, 3);
+	t.is(dom.childNodes.length, 2);
+	t.is(dom.children.length, 1);
 	t.true(dom.firstChild instanceof Text);
 	t.is(dom.firstChild.textContent, ' ');
-	t.true(dom.lastChild instanceof HTMLTimeElement);
-	t.is(dom.querySelectorAll('*').length, 3);
-	t.is(getHTML(dom), html);
+	t.true(dom.lastChild instanceof HTMLParagraphElement);
+	t.is(dom.querySelectorAll('*').length, 9);
+	t.is(getHTML(dom), html.replace('</p>', '</leocorni></elefante></topo></gatto></aquila></serpenti></orango-tango></coccodrilli></p>'));
 	t.is(dom.textContent, '');
 });
 
-test('dominate one', t => {
-	const html = '<base>';
-	const dom = dominate.one(html);
-	t.true(dom instanceof HTMLBaseElement);
+test('domesticate one', t => {
+	const html = '<animal></animal>';
+	const dom = domesticate.one(html);
+	t.true(dom instanceof Element);
 	t.is(dom.childNodes.length, 0);
 	t.is(dom.firstChild, null);
 	t.is(dom.querySelectorAll('*').length, 0);
@@ -91,15 +89,15 @@ test('dominate one', t => {
 	t.is(dom.textContent, '');
 });
 
-test('dominate one story', t => {
-	const html = 'elvis has left the building';
-	const dom = dominate.one(html);
+test('domesticate one wish', t => {
+	const html = 'flying pigs';
+	const dom = domesticate.one(html);
 	t.is(dom, null);
 });
 
-test('dominate one dirty town', t => {
-	const html = 'go to <town></town> on <puns/>';
-	const dom = dominate.one(html);
+test('domesticate one dirty farm', t => {
+	const html = 'go to <town></town> on wild <puns/>';
+	const dom = domesticate.one(html);
 	t.true(dom instanceof Element);
 	t.is(dom.childNodes.length, 0);
 	t.is(dom.firstChild, null);
