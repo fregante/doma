@@ -34,7 +34,8 @@ doma.one('wild animal');
 //=>  null
 ```
 
-# Related
+## Related
 
-- [indent-textarea](https://github.com/bfred-it/indent-textarea) - Add editor-like tab-to-indent functionality to <textarea>, in a few bytes.
+- [select-dom](https://github.com/bfred-it/select-dom) - Lightweight `querySelector`/`All` wrapper that outputs an Array.
+- [delegate-it](https://github.com/bfred-it/delegate-it) - DOM event delegation, in <1KB.
 - [Refined GitHub](https://github.com/sindresorhus/refined-github) - Uses this module.
