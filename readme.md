@@ -39,6 +39,44 @@ doma.one('wild animal');
 //=>  null
 ```
 
+### More examples
+
+#### Example: AJAXed page
+
+Note: `script` tags are not executed, but other `on*` handlers will run normally once attached to the document.
+
+```js
+const response = await fetch('page.html');
+const html = await response.text();
+const dom = doma(html);
+const ajaxedContent = dom.querySelector('#ajax-container').childNodes;
+
+const ajaxedContainer = document.querySelector('#ajax-container');
+ajaxedContainer.append(...ajaxedContent);
+```
+
+#### Example: Parse images from HTML
+
+Note: images are not fetched when the HTML is parsed. The elements only become "active" (and start loading) once appended to the document.
+
+```js
+const html = 'They say it’s round <img src="earth.jpg"> but actually it’s banana-shaped <img src="banana.tiff">';
+const dom = doma(html);
+// =>  DocumentFragment[Text('They say it’s round '), <img>, Text(' but actually it’s banana-shaped ', <img>]
+
+const images = dom.querySelectorAll('img');
+// =>  NodeList[<img>, <img>]
+```
+
+#### Example: Drop HTML tags from string
+
+```js
+const html = '<em>Never</em> gonna give you <sup>up</sup>, never gonna let you <sub>down</sub>';
+const string = doma(html).textContent;
+// =>  'Never gonna give you up, never gonna let you down'
+```
+
+
 ## Related
 
 - [select-dom](https://github.com/bfred-it/select-dom) - Lightweight `querySelector`/`All` wrapper that outputs an Array.
