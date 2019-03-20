@@ -7,8 +7,8 @@ function doma(html: string): DocumentFragment {
 	return template.content;
 }
 
-function one(html: string): Element | null {
-	return doma(html).firstElementChild;
+function one<T extends Element = Element>(html: string): T | null {
+	return doma(html).firstElementChild as T | null;
 }
 
 doma.one = one;
