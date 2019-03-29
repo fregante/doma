@@ -1,7 +1,7 @@
 {
 	"name": "doma",
 	"description": "Parse an HTML string into `DocumentFragment` or one `Element`, in a few bytes (in browser)",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"repository": "bfred-it/doma",
 	"license": "MIT",
 	"files": [
