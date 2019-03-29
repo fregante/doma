@@ -7,11 +7,11 @@ function doma(html: string): DocumentFragment {
 	return template.content;
 }
 
-function one<T extends Element = Element>(html: string): T | null {
+function domaOne<T extends Element = Element>(html: string): T | null {
 	return doma(html).firstElementChild as T | null;
 }
 
-doma.one = one;
+doma.one = domaOne;
 
 module.exports = doma;
 export default doma;
