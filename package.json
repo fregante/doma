@@ -1,24 +1,39 @@
 {
 	"name": "doma",
-	"description": "Parse an HTML string into `DocumentFragment` or one `Element`, in a few bytes (in browser)",
 	"version": "1.0.3",
-	"repository": "bfred-it/doma",
+	"description": "Parse an HTML string into `DocumentFragment` or one `Element`, in a few bytes (in browser)",
+	"keywords": [
+		"browser",
+		"dom",
+		"domify",
+		"innerhtml",
+		"jquery",
+		"outerhtml",
+		"parse html",
+		"string to dom",
+		"vanilla"
+	],
+	"repository": "fregante/doma",
 	"license": "MIT",
 	"files": [
 		"index.js",
 		"index.d.ts"
 	],
-	"keywords": [
-		"parse html",
-		"domify",
-		"vanilla",
-		"jquery",
-		"dom",
-		"browser",
-		"string to dom",
-		"innerhtml",
-		"outerhtml"
-	],
+	"scripts": {
+		"build": "tsc",
+		"prepare": "tsc",
+		"test": "tsc && xo && ava",
+		"watch": "tsc --watch"
+	},
+	"xo": {
+		"envs": [
+			"browser"
+		],
+		"extends": "xo-typescript",
+		"extensions": [
+			"ts"
+		]
+	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^0.2.1",
 		"@typescript-eslint/eslint-plugin": "^1.4.2",
@@ -27,20 +42,5 @@
 		"jsdom": "^14.0.0",
 		"typescript": "^3.3.3333",
 		"xo": "*"
-	},
-	"scripts": {
-		"test": "tsc && xo && ava",
-		"prepare": "tsc",
-		"build": "tsc",
-		"watch": "tsc --watch"
-	},
-	"xo": {
-		"extends": "xo-typescript",
-		"extensions": [
-			"ts"
-		],
-		"envs": [
-			"browser"
-		]
 	}
 }
