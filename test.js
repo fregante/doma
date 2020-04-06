@@ -11,9 +11,9 @@ global.HTMLElement = window.HTMLElement;
 global.HTMLParagraphElement = window.HTMLParagraphElement;
 
 function getHTML(dom) {
-	const el = document.createElement('div');
-	el.append(dom);
-	return el.innerHTML;
+	const element = document.createElement('div');
+	element.append(dom);
+	return element.innerHTML;
 }
 
 test('domesticate', t => {
