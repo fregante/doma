@@ -8,8 +8,8 @@ const doma = (html: string): DocumentFragment => {
 	return template.content;
 };
 
-doma.one = <T extends Element = Element>(html: string): T | null => {
-	return doma(html).firstElementChild as T | null;
+doma.one = <T extends Element = Element>(html: string): T | undefined => {
+	return doma(html).firstElementChild as T ?? undefined;
 };
 
 // TODO: drop in next major version.

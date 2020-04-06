@@ -92,7 +92,7 @@ test('domesticate one', t => {
 test('domesticate one wish', t => {
 	const html = 'flying pigs';
 	const dom = doma.one(html);
-	t.is(dom, null);
+	t.is(dom, undefined);
 });
 
 test('domesticate one dirty farm', t => {
