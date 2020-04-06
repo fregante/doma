@@ -16,10 +16,7 @@ npm install doma
 ## Setup
 
 ```js
-const doma = require('doma');
-```
-
-```js
+ // This module is only offered as a ES Module
 import doma from 'doma';
 ```
 

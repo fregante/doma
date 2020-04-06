@@ -15,6 +15,9 @@
 	],
 	"repository": "fregante/doma",
 	"license": "MIT",
+	"type": "module",
+	"main": "index.js",
+	"module": "index.js",
 	"files": [
 		"index.js",
 		"index.d.ts"
@@ -28,6 +31,22 @@
 	"xo": {
 		"envs": [
 			"browser"
+		],
+		"ignore": [
+			"test.jsdom.js"
+		],
+		"parserOptions": {
+			"ecmaVersion": 2020
+		},
+		"rules": {
+			"import/extensions": "off",
+			"unicorn/import-index": "off",
+			"import/no-useless-path-segments": "off"
+		}
+	},
+	"ava": {
+		"nodeArguments": [
+			"--experimental-modules"
 		]
 	},
 	"devDependencies": {

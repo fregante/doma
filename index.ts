@@ -12,8 +12,4 @@ doma.one = <T extends Element = Element>(html: string): T | undefined => {
 	return doma(html).firstElementChild as T ?? undefined;
 };
 
-// TODO: drop in next major version.
-// User should use esModuleInterop: true
-doma.default = doma;
-
-export = doma;
+export default doma;

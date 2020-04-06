@@ -1,6 +1,6 @@
 import test from 'ava';
-import {JSDOM} from 'jsdom';
-import doma from '.';
+import {JSDOM} from './test.jsdom.js';
+import doma from './index.js';
 
 const {window} = new JSDOM('');
 global.document = window.document;
