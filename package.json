@@ -24,7 +24,7 @@
 	],
 	"scripts": {
 		"build": "tsc",
-		"prepublishOnly": "tsc",
+		"prepack": "tsc --sourceMap false",
 		"test": "tsc && xo && ava",
 		"watch": "tsc --watch"
 	},
@@ -35,9 +35,6 @@
 		"ignore": [
 			"test.jsdom.js"
 		],
-		"parserOptions": {
-			"ecmaVersion": 2020
-		},
 		"rules": {
 			"import/extensions": "off",
 			"unicorn/import-index": "off",
@@ -51,9 +48,9 @@
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^0.7.0",
-		"ava": "^3.6.0",
+		"ava": "^3.8.1",
 		"jsdom": "^16.2.2",
 		"typescript": "^3.8.3",
-		"xo": "^0.28.3"
+		"xo": "^0.30.0"
 	}
 }
