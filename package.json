@@ -32,9 +32,6 @@
 		"envs": [
 			"browser"
 		],
-		"ignore": [
-			"test.jsdom.js"
-		],
 		"rules": {
 			"import/extensions": "off",
 			"unicorn/import-index": "off",
@@ -48,9 +45,9 @@
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^0.7.0",
-		"ava": "^3.8.1",
-		"jsdom": "^16.2.2",
-		"typescript": "^3.8.3",
-		"xo": "^0.30.0"
+		"ava": "^3.12.1",
+		"jsdom": "^16.4.0",
+		"typescript": "^4.0.2",
+		"xo": "^0.33.1"
 	}
 }

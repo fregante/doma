@@ -1,6 +1,9 @@
 import test from 'ava';
-import {JSDOM} from './test.jsdom.js';
+import {createRequire} from 'module';
 import doma from './index.js';
+
+const require = createRequire(import.meta.url);
+export const {JSDOM} = require('jsdom');
 
 const {window} = new JSDOM('');
 global.document = window.document;
