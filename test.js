@@ -74,7 +74,13 @@ test('domesticate animal kingdom', t => {
 	t.is(dom.firstChild.textContent, ' ');
 	t.true(dom.lastChild instanceof HTMLParagraphElement);
 	t.is(dom.querySelectorAll('*').length, 9);
-	t.is(getHTML(dom), html.replace('</p>', '</leocorni></elefante></topo></gatto></aquila></serpenti></orango-tango></coccodrilli></p>'));
+	t.is(
+		getHTML(dom),
+		html.replace(
+			'</p>',
+			'</leocorni></elefante></topo></gatto></aquila></serpenti></orango-tango></coccodrilli></p>',
+		),
+	);
 	t.is(dom.textContent, '');
 });
 

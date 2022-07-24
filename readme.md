@@ -1,7 +1,7 @@
 # doma [![npm version](https://img.shields.io/npm/v/doma.svg)][link-npm] [![(size)][badge-gzip]](#no-link)
 
-  [badge-gzip]: https://img.shields.io/bundlephobia/minzip/doma.svg?label=gzipped
-  [link-npm]: https://www.npmjs.com/package/doma
+[badge-gzip]: https://img.shields.io/bundlephobia/minzip/doma.svg?label=gzipped
+[link-npm]: https://www.npmjs.com/package/doma
 
 > Parse an HTML string into `DocumentFragment` or one `Element`, in a few bytes (in browser or jsdom)
 
@@ -14,7 +14,7 @@ npm install doma
 ## Setup
 
 ```js
- // This module is only offered as a ES Module
+// This module is only offered as a ES Module
 import doma from 'doma';
 ```
 
@@ -70,7 +70,6 @@ const html = '<em>Never</em> gonna give you <sup>up</sup>, never gonna let you <
 const string = doma(html).textContent;
 // =>  'Never gonna give you up, never gonna let you down'
 ```
-
 
 ## Related
 
