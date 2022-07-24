@@ -8,8 +8,6 @@ const doma = (html: string): DocumentFragment => {
 	return template.content;
 };
 
-doma.one = <T extends Element = Element>(html: string): T | undefined => {
-	return doma(html).firstElementChild as T ?? undefined;
-};
+doma.one = <T extends Element = Element>(html: string): T | undefined => doma(html).firstElementChild as T ?? undefined;
 
 export default doma;
