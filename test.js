@@ -1,9 +1,6 @@
 import test from 'ava';
-import {createRequire} from 'module';
+import {JSDOM} from 'jsdom';
 import doma from './index.js';
-
-const require = createRequire(import.meta.url);
-export const {JSDOM} = require('jsdom');
 
 const {window} = new JSDOM('');
 global.document = window.document;
@@ -77,7 +74,13 @@ test('domesticate animal kingdom', t => {
 	t.is(dom.firstChild.textContent, ' ');
 	t.true(dom.lastChild instanceof HTMLParagraphElement);
 	t.is(dom.querySelectorAll('*').length, 9);
-	t.is(getHTML(dom), html.replace('</p>', '</leocorni></elefante></topo></gatto></aquila></serpenti></orango-tango></coccodrilli></p>'));
+	t.is(
+		getHTML(dom),
+		html.replace(
+			'</p>',
+			'</leocorni></elefante></topo></gatto></aquila></serpenti></orango-tango></coccodrilli></p>',
+		),
+	);
 	t.is(dom.textContent, '');
 });
 
