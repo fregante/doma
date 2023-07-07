@@ -14,9 +14,12 @@
 		"vanilla"
 	],
 	"repository": "fregante/doma",
+	"funding": "https://github.com/sponsors/fregante",
 	"license": "MIT",
 	"type": "module",
-	"main": "index.js",
+	"exports": "./index.js",
+	"main": "./index.js",
+	"types": "./index.d.ts",
 	"files": [
 		"index.js",
 		"index.d.ts"
@@ -34,9 +37,12 @@
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^3.0.1",
-		"ava": "^4.3.1",
-		"jsdom": "^20.0.0",
-		"typescript": "^4.7.4",
-		"xo": "^0.51.0"
+		"ava": "^5.3.1",
+		"jsdom": "^22.1.0",
+		"typescript": "^5.1.6",
+		"xo": "^0.54.2"
+	},
+	"engines": {
+		"node": ">=18"
 	}
 }

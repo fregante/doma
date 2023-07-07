@@ -76,3 +76,7 @@ const string = doma(html).textContent;
 - [select-dom](https://github.com/fregante/select-dom) - Lightweight `querySelector`/`All` wrapper that outputs an Array.
 - [delegate-it](https://github.com/fregante/delegate-it) - DOM event delegation, in <1KB.
 - [Refined GitHub](https://github.com/sindresorhus/refined-github) - Uses this module.
+
+## License
+
+MIT © [Federico Brigante](https://fregante.com)
